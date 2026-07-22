@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { submitApplication } from "@/services/admissions";
+import { submitApplicationClient } from "@/services/admissions-client";
 
 export function AdmissionsForm() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export function AdmissionsForm() {
     setError("");
 
     try {
-      await submitApplication(formData);
+      await submitApplicationClient(formData);
       setSuccess(true);
     } catch (err: any) {
       setError(err.message || "Failed to submit application. Please try again.");
