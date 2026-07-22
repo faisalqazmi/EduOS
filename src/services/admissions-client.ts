@@ -19,3 +19,16 @@ export async function submitApplicationClient(data: {
   }
   return true;
 }
+
+export async function updateAdmissionStatusClient(id: string, status: string) {
+  const supabase = createClient();
+  const { error } = await supabase
+    .from("admissions")
+    .update({ status })
+    .eq("id", id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return true;
+}
