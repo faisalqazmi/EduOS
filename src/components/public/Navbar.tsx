@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,7 +24,6 @@ const Navbar: React.FC<NavbarProps> = ({ siteName, logoUrl }) => {
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Left Side - Logo and Site Name */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               {logoUrl ? (
@@ -40,7 +41,6 @@ const Navbar: React.FC<NavbarProps> = ({ siteName, logoUrl }) => {
             </Link>
           </div>
 
-          {/* Right Side - Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -53,7 +53,6 @@ const Navbar: React.FC<NavbarProps> = ({ siteName, logoUrl }) => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -73,7 +72,6 @@ const Navbar: React.FC<NavbarProps> = ({ siteName, logoUrl }) => {
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg py-4 px-4 sm:px-6 lg:px-8 border-t border-gray-200" id="mobile-menu">
           <div className="flex flex-col space-y-2">
