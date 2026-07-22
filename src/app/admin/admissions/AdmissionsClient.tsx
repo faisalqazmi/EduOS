@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { updateAdmissionStatus } from "@/services/admissions";
+import { updateAdmissionStatusClient } from "@/services/admissions-client";
 
 export function AdmissionsClient({ applications }: { applications: any[] }) {
   return (
@@ -60,7 +60,7 @@ export function StatusUpdater({ id, currentStatus }: { id: string; currentStatus
     const newStatus = e.target.value;
     setIsUpdating(true);
     try {
-      await updateAdmissionStatus(id, newStatus);
+      await updateAdmissionStatusClient(id, newStatus);
       router.refresh();
     } catch (error) {
       console.error("Failed to update status:", error);
