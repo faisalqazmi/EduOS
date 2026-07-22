@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { uploadToGallery, deleteGalleryImage } from "@/services/gallery";
+import { uploadToGalleryClient, deleteGalleryImageClient } from "@/services/gallery-client";
 
 export function GalleryManager({ initialImages }: { initialImages: any[] }) {
   const router = useRouter();
@@ -16,7 +16,7 @@ export function GalleryManager({ initialImages }: { initialImages: any[] }) {
 
     try {
       setIsUploading(true);
-      await uploadToGallery(uploadTitle, selectedFile);
+      await uploadToGalleryClient(uploadTitle, selectedFile);
       setUploadTitle("");
       setSelectedFile(null);
       router.refresh();
@@ -32,7 +32,7 @@ export function GalleryManager({ initialImages }: { initialImages: any[] }) {
     if (!confirmed) return;
 
     try {
-      await deleteGalleryImage(imageId);
+      await deleteGalleryImageClient(imageId);
       router.refresh();
     } catch (error) {
       console.error("Failed to delete image:", error);
