@@ -119,21 +119,6 @@ export function FacultyManager({ initialData }: { initialData: any[] }) {
                 <td className="px-6 py-4">{faculty.designation}</td>
                 <td className="px-6 py-4 text-right space-x-3">
                   <button
-                    onClick={() => {
-                      setFormData({
-                        name: faculty.name || "",
-                        department: faculty.department || "",
-                        designation: faculty.designation || "",
-                        bio: faculty.bio || "",
-                        email: faculty.email || "",
-                      });
-                      setIsModalOpen(true);
-                    }}
-                    className="text-indigo-600 hover:text-indigo-900 font-medium"
-                  >
-                    Edit
-                  </button>
-                  <button
                     onClick={() => handleDelete(faculty.id)}
                     className="text-red-600 hover:text-red-900 font-medium"
                   >
